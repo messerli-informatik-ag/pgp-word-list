@@ -3,53 +3,53 @@ using System.Linq;
 
 namespace Messerli.PgpWordList
 {
-    public static class PgpWordAccumulationExtension
+    public static class PgpWordAggregationExtension
     {
-        public static PgpWordAccumulation ToPgpWordAccumulation(
+        public static PgpWordAggregation ToPgpWordAccumulation(
             this short number,
-            string separator = PgpWordAccumulationBuilder.DefaultSeparator)
+            string separator = PgpWordAggregationBuilder.DefaultSeparator)
             => number
                 .ToByteArray()
                 .ReverseForLittleEndianArchitecture()
                 .ToPgpWordAccumulation(separator);
 
-        public static PgpWordAccumulation ToPgpWordAccumulation(
+        public static PgpWordAggregation ToPgpWordAccumulation(
             this int number,
-            string separator = PgpWordAccumulationBuilder.DefaultSeparator)
+            string separator = PgpWordAggregationBuilder.DefaultSeparator)
             => number
                 .ToByteArray()
                 .ReverseForLittleEndianArchitecture()
                 .ToPgpWordAccumulation(separator);
 
-        public static PgpWordAccumulation ToPgpWordAccumulation(
+        public static PgpWordAggregation ToPgpWordAccumulation(
             this byte[] byteArray,
-            string separator = PgpWordAccumulationBuilder.DefaultSeparator)
-            => new PgpWordAccumulationBuilder()
+            string separator = PgpWordAggregationBuilder.DefaultSeparator)
+            => new PgpWordAggregationBuilder()
                 .SetSeparator(separator)
                 .Add(byteArray)
                 .Build();
 
         public static int ToInt32(
-            this PgpWordAccumulation pgpWordAccumulation,
-            string separator = PgpWordAccumulationBuilder.DefaultSeparator)
-            => pgpWordAccumulation
+            this PgpWordAggregation pgpWordAggregation,
+            string separator = PgpWordAggregationBuilder.DefaultSeparator)
+            => pgpWordAggregation
                 .ToByteArray(separator)
                 .ReverseForLittleEndianArchitecture()
                 .ToInt32();
 
         public static int ToInt16(
-            this PgpWordAccumulation pgpWordAccumulation,
-            string separator = PgpWordAccumulationBuilder.DefaultSeparator)
-            => pgpWordAccumulation
+            this PgpWordAggregation pgpWordAggregation,
+            string separator = PgpWordAggregationBuilder.DefaultSeparator)
+            => pgpWordAggregation
                 .ToByteArray(separator)
                 .ReverseForLittleEndianArchitecture()
                 .ToInt16();
 
         public static byte[] ToByteArray(
-            this PgpWordAccumulation pgpWordAccumulation,
-            string separator = PgpWordAccumulationBuilder.DefaultSeparator)
-            => new PgpWordAccumulationParser(separator)
-                .Parse(pgpWordAccumulation);
+            this PgpWordAggregation pgpWordAggregation,
+            string separator = PgpWordAggregationBuilder.DefaultSeparator)
+            => new PgpWordAggregationParser(separator)
+                .Parse(pgpWordAggregation);
 
         private static byte[] ToByteArray(this int number)
             => BitConverter.GetBytes(number);

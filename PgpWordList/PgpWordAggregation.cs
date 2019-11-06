@@ -1,8 +1,10 @@
+using System;
+
 namespace Messerli.PgpWordList
 {
-    public class PgpWordAccumulation
+    public class PgpWordAggregation
     {
-        public PgpWordAccumulation(string value)
+        public PgpWordAggregation(string value)
         {
             Value = value;
         }

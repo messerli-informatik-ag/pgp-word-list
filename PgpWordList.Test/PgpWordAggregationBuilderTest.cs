@@ -2,14 +2,14 @@ using Xunit;
 
 namespace Messerli.PgpWordList.Test
 {
-    public class PgpWordAccumulationBuilderTest
+    public class PgpWordAggregationBuilderTest
     {
         [Theory]
         [ClassData(typeof(PgpWordListTestData))]
         public void GeneratesPgpString(byte[] pgpBytes, string separator, string expectedPgpString)
         {
             var pgpString =
-                new PgpWordAccumulationBuilder()
+                new PgpWordAggregationBuilder()
                     .SetSeparator(separator)
                     .Add(pgpBytes)
                     .Build();

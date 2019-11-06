@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace Messerli.PgpWordList
 {
-    public class PgpWordAccumulationParser
+    public class PgpWordAggregationParser
     {
         public const string DefaultSeparator = "-";
 
         private readonly string _separator;
 
-        public PgpWordAccumulationParser(string separator = DefaultSeparator)
+        public PgpWordAggregationParser(string separator = DefaultSeparator)
         {
             _separator = separator;
         }
 
-        public byte[] Parse(PgpWordAccumulation pgpWordAccumulation)
-            => pgpWordAccumulation
+        public byte[] Parse(PgpWordAggregation pgpWordAggregation)
+            => pgpWordAggregation
                 .Value
                 .Split(_separator)
                 .Aggregate(new List<byte>(), WordToByte)

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Messerli.PgpWordList
 {
-    public class PgpWordAccumulationBuilder
+    public class PgpWordAggregationBuilder
     {
         public const string DefaultSeparator = "-";
 
@@ -11,26 +11,26 @@ namespace Messerli.PgpWordList
 
         private string _separator = DefaultSeparator;
 
-        public PgpWordAccumulationBuilder SetSeparator(string separator)
+        public PgpWordAggregationBuilder SetSeparator(string separator)
         {
             _separator = separator;
             return this;
         }
 
-        public PgpWordAccumulationBuilder Add(byte @byte)
+        public PgpWordAggregationBuilder Add(byte @byte)
         {
             _byteList.Add(@byte);
             return this;
         }
 
-        public PgpWordAccumulationBuilder Add(byte[] byteArray)
+        public PgpWordAggregationBuilder Add(byte[] byteArray)
         {
             _byteList.AddRange(byteArray);
             return this;
         }
 
-        public PgpWordAccumulation Build()
-            => new PgpWordAccumulation(
+        public PgpWordAggregation Build()
+            => new PgpWordAggregation(
                 string.Join(
                     _separator,
                     _byteList.Aggregate(new List<string>(), ByteToWord)));

@@ -2,7 +2,7 @@ using Xunit;
 
 namespace Messerli.PgpWordList.Test
 {
-    public class PgpWordAccumulationExtensionTest
+    public class PgpWordAggregationExtensionTest
     {
         [Theory]
         [MemberData(nameof(GetInt16TestData))]
@@ -75,13 +75,13 @@ namespace Messerli.PgpWordList.Test
                 new byte[] { 0xFF, 0xFF, 0xFF, 0xFF },
             };
 
-        private static PgpWordAccumulation BuildPgpWordAccumulation(byte[] bytes)
-            => new PgpWordAccumulationBuilder()
+        private static PgpWordAggregation BuildPgpWordAccumulation(byte[] bytes)
+            => new PgpWordAggregationBuilder()
                 .Add(bytes)
                 .Build();
 
-        private static byte[] ParsePgpWordAccumulation(PgpWordAccumulation pgpWordAccumulation)
-            => new PgpWordAccumulationParser()
-                .Parse(pgpWordAccumulation);
+        private static byte[] ParsePgpWordAccumulation(PgpWordAggregation pgpWordAggregation)
+            => new PgpWordAggregationParser()
+                .Parse(pgpWordAggregation);
     }
 }
