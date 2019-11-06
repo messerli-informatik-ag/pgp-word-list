@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
-        <IsPackable>false</IsPackable>
-        <RootNamespace>Messerli.PgpWordList.Test</RootNamespace>
-        <AssemblyName>Messerli.PgpWordList.Test</AssemblyName>
-    </PropertyGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\PgpWordList\PgpWordList.csproj" />
-    </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Messerli.PgpWordList.Test</RootNamespace>
+    <AssemblyName>Messerli.PgpWordList.Test</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PgpWordList\PgpWordList.csproj" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

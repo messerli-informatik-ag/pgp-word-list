@@ -256,3 +256,5 @@ Client.Cli/Properties/
 
 FodyWeavers.xsd
 
+/.config/dotnet-tools.json
+/.paket/Paket.Restore.targets
