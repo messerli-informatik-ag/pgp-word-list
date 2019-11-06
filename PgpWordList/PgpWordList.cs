@@ -1,19 +1,19 @@
-using System;
+using System.Linq;
 
 namespace Messerli.PgpWordList
 {
-    public static class PgpWordList
+    public static partial class PgpWordList
     {
         public static string MapEven(byte @byte)
-            => throw new NotImplementedException();
+            => Data[@byte].Even;
 
         public static string MapOdd(byte @byte)
-            => throw new NotImplementedException();
+            => Data[@byte].Odd;
 
         public static byte? FindEven(string word)
-            => throw new NotImplementedException();
+            => Data.FirstOrDefault(element => element.Value.Even.Equals(word)).Key;
 
         public static byte? FindOdd(string word)
-            => throw new NotImplementedException();
+            => Data.FirstOrDefault(element => element.Value.Odd.Equals(word)).Key;
     }
 }
