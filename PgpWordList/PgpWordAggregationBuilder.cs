@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -38,11 +39,14 @@ namespace Messerli.PgpWordList
         private static List<string> ByteToWord(List<string> list, byte @byte)
         {
             list.Add(
-                list.Count % 2 == 0
+                IsEven(list)
                     ? PgpWordList.MapEven(@byte)
                     : PgpWordList.MapOdd(@byte));
 
             return list;
         }
+
+        private static bool IsEven(ICollection list)
+            => list.Count % 2 == 0;
     }
 }

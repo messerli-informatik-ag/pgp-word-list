@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,7 +25,7 @@ namespace Messerli.PgpWordList
 
         private static List<byte> WordToByte(List<byte> list, string word)
         {
-            var @byte = list.Count % 2 == 0
+            var @byte = IsEven(list)
                 ? PgpWordList.FindEven(word)
                 : PgpWordList.FindOdd(word);
 
@@ -32,5 +33,8 @@ namespace Messerli.PgpWordList
 
             return list;
         }
+
+        private static bool IsEven(ICollection list)
+            => list.Count % 2 == 0;
     }
 }
