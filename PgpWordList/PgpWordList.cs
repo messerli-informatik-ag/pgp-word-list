@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace Messerli.PgpWordList
@@ -11,9 +12,14 @@ namespace Messerli.PgpWordList
             => Data[@byte].Odd;
 
         public static byte? FindEven(string word)
-            => Data.FirstOrDefault(element => element.Value.Even.Equals(word)).Key;
+            => Find(element => element.Even, word);
 
         public static byte? FindOdd(string word)
-            => Data.FirstOrDefault(element => element.Value.Odd.Equals(word)).Key;
+            => Find(element => element.Odd, word);
+
+        private static byte? Find(Func<(string Even, string Odd), string> valueSelector, string word)
+            => Data
+                .FirstOrDefault(element => valueSelector(element.Value) == word)
+                .Key;
     }
 }
