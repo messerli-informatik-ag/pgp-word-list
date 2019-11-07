@@ -9,27 +9,30 @@ namespace Messerli.PgpWordList
     {
         public const string DefaultSeparator = "-";
 
-        private readonly ImmutableList<byte> _byteList = ImmutableList<byte>.Empty;
+        private readonly ImmutableList<byte> _byteList;
 
-        private string _separator = DefaultSeparator;
+        private readonly string _separator;
 
-        public PgpWordAggregationBuilder SetSeparator(string separator)
+        public PgpWordAggregationBuilder()
+        {
+            _byteList = ImmutableList<byte>.Empty;
+            _separator = DefaultSeparator;
+        }
+
+        private PgpWordAggregationBuilder(string separator, ImmutableList<byte> byteList)
         {
             _separator = separator;
-            return this;
+            _byteList = byteList;
         }
+
+        public PgpWordAggregationBuilder SetSeparator(string separator)
+            => new PgpWordAggregationBuilder(separator, _byteList);
 
         public PgpWordAggregationBuilder Add(byte @byte)
-        {
-            _byteList.Add(@byte);
-            return this;
-        }
+            => new PgpWordAggregationBuilder(_separator, _byteList.Add(@byte));
 
         public PgpWordAggregationBuilder Add(byte[] byteArray)
-        {
-            _byteList.AddRange(byteArray);
-            return this;
-        }
+            => new PgpWordAggregationBuilder(_separator, _byteList.AddRange(byteArray));
 
         public PgpWordAggregation Build()
             => new PgpWordAggregation(
