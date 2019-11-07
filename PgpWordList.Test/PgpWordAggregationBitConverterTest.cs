@@ -1,4 +1,4 @@
-using Xunit;
+﻿using Xunit;
 using static Messerli.PgpWordList.PgpWordAggregationBitConverter;
 
 namespace Messerli.PgpWordList.Test

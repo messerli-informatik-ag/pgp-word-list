@@ -1,6 +1,4 @@
-using System;
-
-namespace Messerli.PgpWordList
+﻿namespace Messerli.PgpWordList
 {
     public class PgpWordAggregation
     {

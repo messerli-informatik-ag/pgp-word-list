@@ -1,0 +1,4 @@
+<Project>
+	<Import Project="$(MSBuildThisFileDirectory).config\code-style\Default.targets" />
+</Project>
+
