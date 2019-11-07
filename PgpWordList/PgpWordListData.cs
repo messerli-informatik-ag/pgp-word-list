@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Messerli.PgpWordList
 {
     /// <summary>
-    /// Contains the word list from https://en.wikipedia.org/wiki/PGP_word_list.
+    /// Contains the word list from <a href="https://en.wikipedia.org/wiki/PGP_word_list">here</a>.
     /// </summary>
     public static partial class PgpWordList
     {
