@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Messerli.PgpWordList
@@ -8,7 +9,7 @@ namespace Messerli.PgpWordList
     {
         public const string DefaultSeparator = "-";
 
-        private readonly List<byte> _byteList = new List<byte>();
+        private readonly ImmutableList<byte> _byteList = ImmutableList<byte>.Empty;
 
         private string _separator = DefaultSeparator;
 
