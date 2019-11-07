@@ -6,15 +6,15 @@ namespace Messerli.PgpWordList.Test
     {
         [Theory]
         [ClassData(typeof(PgpWordListTestData))]
-        public void GeneratesPgpString(byte[] pgpBytes, string separator, string expectedPgpString)
+        public void GeneratesPgpWordAggregation(byte[] pgpBytes, string separator, string expectedPgpWordAggregation)
         {
-            var pgpString =
+            var pgpWordAggregation =
                 new PgpWordAggregationBuilder()
                     .SetSeparator(separator)
                     .Add(pgpBytes)
                     .Build();
 
-            Assert.Equal(expectedPgpString, pgpString.Value);
+            Assert.Equal(expectedPgpWordAggregation, pgpWordAggregation.Value);
         }
     }
 }

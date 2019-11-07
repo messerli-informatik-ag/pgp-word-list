@@ -6,11 +6,11 @@ namespace Messerli.PgpWordList.Test
     {
         [Theory]
         [ClassData(typeof(PgpWordListTestData))]
-        public void ParsePgpWordAccumulation(byte[] expectedPgpBytes, string separator, string pgpString)
+        public void ParsesPgpWordAggregation(byte[] expectedPgpBytes, string separator, string pgpWordAggregation)
         {
             var pgpBytes =
                 new PgpWordAggregationParser(separator)
-                    .Parse(new PgpWordAggregation(pgpString));
+                    .Parse(new PgpWordAggregation(pgpWordAggregation));
 
             Assert.Equal(expectedPgpBytes, pgpBytes);
         }
