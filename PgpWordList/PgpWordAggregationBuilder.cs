@@ -34,17 +34,18 @@ namespace Messerli.PgpWordList
             => new PgpWordAggregation(
                 string.Join(
                     _separator,
-                    _byteList.Aggregate(new List<string>(), ByteToWord)));
+                    _byteList.Aggregate(new List<string>(), AggregateByteToWordList)));
 
-        private static List<string> ByteToWord(List<string> list, byte @byte)
+        private static List<string> AggregateByteToWordList(List<string> list, byte @byte)
         {
-            list.Add(
-                IsEven(list)
-                    ? PgpWordList.MapEven(@byte)
-                    : PgpWordList.MapOdd(@byte));
-
+            list.Add(ByteToWord(@byte, IsEven(list)));
             return list;
         }
+
+        private static string ByteToWord(byte @byte, bool even)
+            => even
+                ? PgpWordList.MapEven(@byte)
+                : PgpWordList.MapOdd(@byte);
 
         private static bool IsEven(ICollection list)
             => list.Count % 2 == 0;

@@ -20,19 +20,22 @@ namespace Messerli.PgpWordList
             => pgpWordAggregation
                 .Value
                 .Split(_separator)
-                .Aggregate(new List<byte>(), WordToByte)
+                .Aggregate(new List<byte>(), AggregateWordToByteArray)
                 .ToArray();
 
-        private static List<byte> WordToByte(List<byte> list, string word)
+        private static List<byte> AggregateWordToByteArray(List<byte> list, string word)
         {
-            var @byte = IsEven(list)
-                ? PgpWordList.FindEven(word)
-                : PgpWordList.FindOdd(word);
-
-            list.Add(@byte ?? throw new ArgumentException($"'{word}' is an invalid pgp word."));
+            list.Add(
+                WordToByte(word, IsEven(list))
+                     ?? throw new ArgumentException($"'{word}' is an invalid pgp word."));
 
             return list;
         }
+
+        private static byte? WordToByte(string word, bool even)
+            => even
+                ? PgpWordList.FindEven(word)
+                : PgpWordList.FindOdd(word);
 
         private static bool IsEven(ICollection list)
             => list.Count % 2 == 0;
