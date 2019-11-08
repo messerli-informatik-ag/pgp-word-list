@@ -1,4 +1,4 @@
-using Xunit;
+﻿using Xunit;
 using static Messerli.PgpWordList.PgpWordAggregationBitConverter;
 
 namespace Messerli.PgpWordList.Test
@@ -7,15 +7,15 @@ namespace Messerli.PgpWordList.Test
     {
         [Theory]
         [MemberData(nameof(GetInt16TestData))]
-        public void Int16ToPgpWordAccumulationMatchesPgpWordAccumulationBuilder(short int16, byte[] bytes)
-            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAggregation(int16).Value);
+        public void Int16ToPgpWordAggregationMatchesPgpWordAggregationBuilder(short int16, byte[] bytes)
+            => Assert.Equal(BuildPgpWordAggregation(bytes).Value, ToPgpWordAggregation(int16).Value);
 
         [Theory]
         [MemberData(nameof(GetInt16TestData))]
-        public void PgpWordAccumulationToInt16MatchesPgpWordAccumulationParser(short int16, byte[] bytes)
+        public void PgpWordAggregationToInt16MatchesPgpWordAggregationParser(short int16, byte[] bytes)
         {
-            var pgpWordAggregation = BuildPgpWordAccumulation(bytes);
-            Assert.Equal(bytes, ParsePgpWordAccumulation(pgpWordAggregation));
+            var pgpWordAggregation = BuildPgpWordAggregation(bytes);
+            Assert.Equal(bytes, ParsePgpWordAggregation(pgpWordAggregation));
             Assert.Equal(int16, ToInt16(pgpWordAggregation));
         }
 
@@ -31,15 +31,15 @@ namespace Messerli.PgpWordList.Test
 
         [Theory]
         [MemberData(nameof(GetInt32TestData))]
-        public void Int32ToPgpWordAccumulationMatchesPgpWordAccumulationBuilder(int int32, byte[] bytes)
-            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAggregation(int32).Value);
+        public void Int32ToPgpWordAggregationMatchesPgpWordAggregationBuilder(int int32, byte[] bytes)
+            => Assert.Equal(BuildPgpWordAggregation(bytes).Value, ToPgpWordAggregation(int32).Value);
 
         [Theory]
         [MemberData(nameof(GetInt32TestData))]
-        public void PgpWordAccumulationToInt32MatchesPgpWordAccumulationParser(int int32, byte[] bytes)
+        public void PgpWordAggregationToInt32MatchesPgpWordAggregationParser(int int32, byte[] bytes)
         {
-            var pgpWordAggregation = BuildPgpWordAccumulation(bytes);
-            Assert.Equal(bytes, ParsePgpWordAccumulation(pgpWordAggregation));
+            var pgpWordAggregation = BuildPgpWordAggregation(bytes);
+            Assert.Equal(bytes, ParsePgpWordAggregation(pgpWordAggregation));
             Assert.Equal(int32, ToInt32(pgpWordAggregation));
         }
 
@@ -55,15 +55,15 @@ namespace Messerli.PgpWordList.Test
 
         [Theory]
         [MemberData(nameof(GetByteArrayTestData))]
-        public void ByteArrayToPgpWordAccumulationMatchesPgpWordAccumulationBuilder(byte[] bytes)
-            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAggregation(bytes).Value);
+        public void ByteArrayToPgpWordAggregationMatchesPgpWordAggregationBuilder(byte[] bytes)
+            => Assert.Equal(BuildPgpWordAggregation(bytes).Value, ToPgpWordAggregation(bytes).Value);
 
         [Theory]
         [MemberData(nameof(GetByteArrayTestData))]
-        public void PgpWordAccumulationToByteArrayMatchesPgpWordAccumulationParser(byte[] bytes)
+        public void PgpWordAggregationToByteArrayMatchesPgpWordAggregationParser(byte[] bytes)
         {
-            var pgpWordAggregation = BuildPgpWordAccumulation(bytes);
-            Assert.Equal(ParsePgpWordAccumulation(pgpWordAggregation), GetBytes(pgpWordAggregation));
+            var pgpWordAggregation = BuildPgpWordAggregation(bytes);
+            Assert.Equal(ParsePgpWordAggregation(pgpWordAggregation), GetBytes(pgpWordAggregation));
         }
 
         public static TheoryData<byte[]> GetByteArrayTestData()
@@ -76,12 +76,12 @@ namespace Messerli.PgpWordList.Test
                 new byte[] { 0xFF, 0xFF, 0xFF, 0xFF },
             };
 
-        private static PgpWordAggregation BuildPgpWordAccumulation(byte[] bytes)
+        private static PgpWordAggregation BuildPgpWordAggregation(byte[] bytes)
             => new PgpWordAggregationBuilder()
                 .Add(bytes)
                 .Build();
 
-        private static byte[] ParsePgpWordAccumulation(PgpWordAggregation pgpWordAggregation)
+        private static byte[] ParsePgpWordAggregation(PgpWordAggregation pgpWordAggregation)
             => new PgpWordAggregationParser()
                 .Parse(pgpWordAggregation);
     }
