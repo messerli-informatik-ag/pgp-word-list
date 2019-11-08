@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 using static Messerli.PgpWordList.PgpWordAggregationBitConverter;
 
 namespace Messerli.PgpWordList.Test
@@ -8,7 +8,7 @@ namespace Messerli.PgpWordList.Test
         [Theory]
         [MemberData(nameof(GetInt16TestData))]
         public void Int16ToPgpWordAccumulationMatchesPgpWordAccumulationBuilder(short int16, byte[] bytes)
-            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAccumulation(int16).Value);
+            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAggregation(int16).Value);
 
         [Theory]
         [MemberData(nameof(GetInt16TestData))]
@@ -32,7 +32,7 @@ namespace Messerli.PgpWordList.Test
         [Theory]
         [MemberData(nameof(GetInt32TestData))]
         public void Int32ToPgpWordAccumulationMatchesPgpWordAccumulationBuilder(int int32, byte[] bytes)
-            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAccumulation(int32).Value);
+            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAggregation(int32).Value);
 
         [Theory]
         [MemberData(nameof(GetInt32TestData))]
@@ -56,7 +56,7 @@ namespace Messerli.PgpWordList.Test
         [Theory]
         [MemberData(nameof(GetByteArrayTestData))]
         public void ByteArrayToPgpWordAccumulationMatchesPgpWordAccumulationBuilder(byte[] bytes)
-            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAccumulation(bytes).Value);
+            => Assert.Equal(BuildPgpWordAccumulation(bytes).Value, ToPgpWordAggregation(bytes).Value);
 
         [Theory]
         [MemberData(nameof(GetByteArrayTestData))]
