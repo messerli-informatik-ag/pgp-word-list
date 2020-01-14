@@ -18,7 +18,6 @@
         <PackageId>Messerli.PgpWordList</PackageId>
         <PackageTags>PGP word list wordlist</PackageTags>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
-        <Authors>Dominic Groth</Authors>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>PGP word list and functionality to encode and decode series of PGP words.</Description>
     </PropertyGroup>
