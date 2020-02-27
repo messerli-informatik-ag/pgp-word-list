@@ -1,29 +1,29 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace Messerli.PgpWordList
 {
     public static class PgpWordAggregationBitConverter
     {
-        public static PgpWordAggregation ToPgpWordAccumulation(
+        public static PgpWordAggregation ToPgpWordAggregation(
             short number,
             string separator = PgpWordAggregationBuilder.DefaultSeparator)
-            => ToPgpWordAccumulation(
+            => ToPgpWordAggregation(
                 number
                     .GetBytes()
                     .ReverseForLittleEndianArchitecture(),
                 separator);
 
-        public static PgpWordAggregation ToPgpWordAccumulation(
+        public static PgpWordAggregation ToPgpWordAggregation(
             int number,
             string separator = PgpWordAggregationBuilder.DefaultSeparator)
-            => ToPgpWordAccumulation(
+            => ToPgpWordAggregation(
                 number
                     .GetBytes()
                     .ReverseForLittleEndianArchitecture(),
                 separator);
 
-        public static PgpWordAggregation ToPgpWordAccumulation(
+        public static PgpWordAggregation ToPgpWordAggregation(
             byte[] byteArray,
             string separator = PgpWordAggregationBuilder.DefaultSeparator)
             => new PgpWordAggregationBuilder()
