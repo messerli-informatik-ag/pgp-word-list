@@ -58,10 +58,10 @@ namespace Messerli.PgpWordList
             => BitConverter.GetBytes(number);
 
         private static short ToInt16(this byte[] byteArray)
-            => BitConverter.ToInt16(byteArray);
+            => BitConverter.ToInt16(byteArray, startIndex: 0);
 
         private static int ToInt32(this byte[] byteArray)
-            => BitConverter.ToInt32(byteArray);
+            => BitConverter.ToInt32(byteArray, startIndex: 0);
 
         private static byte[] ReverseForLittleEndianArchitecture(this byte[] byteArray)
             => BitConverter.IsLittleEndian
