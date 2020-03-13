@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk; Microsoft.Build.CentralPackageVersions">
     <PropertyGroup>
         <RootNamespace>Messerli.PgpWordList.Test</RootNamespace>
         <AssemblyName>Messerli.PgpWordList.Test</AssemblyName>
@@ -14,5 +14,9 @@
     <ItemGroup>
         <ProjectReference Include="..\PgpWordList\PgpWordList.csproj" />
     </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="xunit" />
+        <PackageReference Include="xunit.runner.visualstudio" />
+    </ItemGroup>
 </Project>
