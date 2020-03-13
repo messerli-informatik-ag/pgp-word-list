@@ -11,15 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		.gitmodules = .gitmodules
 		.travis.yml = .travis.yml
 		changelog.md = changelog.md
-		Directory.Build.targets = Directory.Build.targets
 		license_apache.txt = license_apache.txt
 		license_mit.txt = license_mit.txt
 		paket.dependencies = paket.dependencies
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Config", "Build Config", "{F9FFB17A-3D86-4298-B02B-119853F24519}"
+ProjectSection(SolutionItems) = preProject
+	Directory.Build.props = Directory.Build.props
+	global.json = global.json
+EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
