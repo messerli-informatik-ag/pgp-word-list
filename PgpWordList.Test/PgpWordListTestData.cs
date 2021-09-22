@@ -10,6 +10,7 @@ namespace Messerli.PgpWordList.Test
             Add(new byte[] { 0x53, 0x01, 0xE2, 0x49 }, " ", "dwelling adviser tiger dinosaur");
             Add(new byte[] { 0x30, 0x0E, 0x03, 0x0B }, "|", "chairlift|Atlantic|acme|armistice");
             Add(new byte[] { 0x1F, 0xEB, 0x85, 0xFF }, "-", "billiard-underfoot-music-Yucatan");
+            Add(new byte[] { 0x1F, 0xEB, 0x85, 0xFF }, "##", "billiard##underfoot##music##Yucatan");
         }
     }
 }

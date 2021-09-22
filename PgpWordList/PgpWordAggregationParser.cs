@@ -19,7 +19,7 @@ namespace Messerli.PgpWordList
         public byte[] Parse(PgpWordAggregation pgpWordAggregation)
             => pgpWordAggregation
                 .Value
-                .Split(_separator.ToCharArray())
+                .Split(new[] { _separator }, StringSplitOptions.None)
                 .Aggregate(new List<byte>(), AggregateWordToByteArray)
                 .ToArray();
 
