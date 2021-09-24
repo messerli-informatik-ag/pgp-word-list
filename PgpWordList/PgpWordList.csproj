@@ -9,8 +9,6 @@
         <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
         <PropertyGroup>
         <RepositoryUrl>https://github.com/messerli-informatik-ag/pgp-word-list</RepositoryUrl>
