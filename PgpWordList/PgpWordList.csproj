@@ -6,11 +6,9 @@
     </PropertyGroup>
     <PropertyGroup>
         <Version>0.1.1</Version>
-        <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;netstandard2.0;netcoreapp3.1</TargetFrameworks>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
         <PropertyGroup>
         <RepositoryUrl>https://github.com/messerli-informatik-ag/pgp-word-list</RepositoryUrl>
@@ -21,7 +19,11 @@
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <Description>PGP word list and functionality to encode and decode series of PGP words.</Description>
     </PropertyGroup>
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="System.Collections.Immutable" />
+        <PackageReference Include="System.Collections.Immutable" Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'netstandard2.1'" />
     </ItemGroup>
 </Project>
