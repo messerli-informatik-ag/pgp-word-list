@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ItemGroup Label="Runtime dependencies">
-		<PackageReference Update="System.Collections.Immutable" Version="[1.6, 2)" />
+		<PackageReference Update="System.Collections.Immutable" Version="1.6.0" />
 	</ItemGroup>
 	<ItemGroup Label="Build dependencies">
 		<PackageReference Update="Messerli.CodeStyle" Version="2.1.0" />
