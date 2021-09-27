@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using Funcky.Extensions;
 
 namespace Messerli.PgpWordList
 {
@@ -19,7 +19,9 @@ namespace Messerli.PgpWordList
 
         private static byte? Find(Func<(string Even, string Odd), string> valueSelector, string word)
             => Data
-                .FirstOrDefault(element => valueSelector(element.Value) == word)
-                .Key;
+                .FirstOrNone(element => valueSelector(element.Value) == word)
+                .Match(
+                    some: pair => pair.Key,
+                    none: () => (byte?)null);
     }
 }
