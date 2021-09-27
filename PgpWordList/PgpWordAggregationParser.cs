@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Messerli.PgpWordList
@@ -19,25 +17,18 @@ namespace Messerli.PgpWordList
         public byte[] Parse(PgpWordAggregation pgpWordAggregation)
             => pgpWordAggregation
                 .Value
-                .Split(_separator.ToCharArray())
-                .Aggregate(new List<byte>(), AggregateWordToByteArray)
+                .Split(new[] { _separator }, StringSplitOptions.None)
+                .Select(WordToByte)
                 .ToArray();
 
-        private static List<byte> AggregateWordToByteArray(List<byte> list, string word)
-        {
-            list.Add(
-                WordToByte(word, IsEven(list))
-                     ?? throw new ArgumentException($"'{word}' is an invalid pgp word."));
-
-            return list;
-        }
+        private static byte WordToByte(string word, int index)
+            => WordToByte(word, IsEven(index)) ?? throw new ArgumentException($"'{word}' is an invalid pgp word.");
 
         private static byte? WordToByte(string word, bool even)
             => even
                 ? PgpWordList.FindEven(word)
                 : PgpWordList.FindOdd(word);
 
-        private static bool IsEven(ICollection list)
-            => list.Count % 2 == 0;
+        private static bool IsEven(int number) => number % 2 == 0;
     }
 }

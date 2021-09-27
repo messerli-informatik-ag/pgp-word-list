@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Linq;
 
 namespace Messerli.PgpWordList
@@ -35,23 +33,13 @@ namespace Messerli.PgpWordList
             => new PgpWordAggregationBuilder(_separator, _byteList.AddRange(byteArray));
 
         public PgpWordAggregation Build()
-            => new PgpWordAggregation(
-                string.Join(
-                    _separator,
-                    _byteList.Aggregate(new List<string>(), AggregateByteToWordList)));
+            => new PgpWordAggregation(string.Join(_separator, _byteList.Select(ByteToWord)));
 
-        private static List<string> AggregateByteToWordList(List<string> list, byte @byte)
-        {
-            list.Add(ByteToWord(@byte, IsEven(list)));
-            return list;
-        }
-
-        private static string ByteToWord(byte @byte, bool even)
-            => even
+        private static string ByteToWord(byte @byte, int index)
+            => IsEven(index)
                 ? PgpWordList.MapEven(@byte)
                 : PgpWordList.MapOdd(@byte);
 
-        private static bool IsEven(ICollection list)
-            => list.Count % 2 == 0;
+        private static bool IsEven(int number) => number % 2 == 0;
     }
 }
