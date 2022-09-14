@@ -5,7 +5,7 @@ namespace Messerli.PgpWordList;
 /// <summary>
 /// Contains the word list from <a href="https://en.wikipedia.org/wiki/PGP_word_list">here</a>.
 /// </summary>
-public static partial class PgpWordList
+public static partial class PgpWords
 {
     private static IReadOnlyDictionary<byte, (string Even, string Odd)> Data
         => new Dictionary<byte, (string Even, string Odd)>
