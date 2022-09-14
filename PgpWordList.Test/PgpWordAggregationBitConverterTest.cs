@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 using static Messerli.PgpWordList.PgpWordAggregationBitConverter;
 
 namespace Messerli.PgpWordList.Test;
@@ -20,7 +20,7 @@ public class PgpWordAggregationBitConverterTest
     }
 
     public static TheoryData<short, byte[]> GetInt16TestData()
-        => new TheoryData<short, byte[]>
+        => new()
         {
             { 0, new byte[] { 0x00, 0x00 } },
             { 1171, new byte[] { 0x04, 0x93 } },
@@ -44,7 +44,7 @@ public class PgpWordAggregationBitConverterTest
     }
 
     public static TheoryData<int, byte[]> GetInt32TestData()
-        => new TheoryData<int, byte[]>
+        => new()
         {
             { 0, new byte[] { 0x00, 0x00, 0x00, 0x00 } },
             { 76798590, new byte[] { 0x04, 0x93, 0xDA, 0x7E } },
@@ -67,7 +67,7 @@ public class PgpWordAggregationBitConverterTest
     }
 
     public static TheoryData<byte[]> GetByteArrayTestData()
-        => new TheoryData<byte[]>
+        => new()
         {
             new byte[] { 0x00, 0x00, 0x00, 0x00 },
             new byte[] { 0x04, 0x93, 0xDA, 0x7E },
