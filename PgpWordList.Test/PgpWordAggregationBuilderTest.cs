@@ -1,20 +1,19 @@
-﻿using Xunit;
+using Xunit;
 
-namespace Messerli.PgpWordList.Test
+namespace Messerli.PgpWordList.Test;
+
+public class PgpWordAggregationBuilderTest
 {
-    public class PgpWordAggregationBuilderTest
+    [Theory]
+    [ClassData(typeof(PgpWordListTestData))]
+    public void GeneratesPgpWordAggregation(byte[] pgpBytes, string separator, string expectedPgpWordAggregation)
     {
-        [Theory]
-        [ClassData(typeof(PgpWordListTestData))]
-        public void GeneratesPgpWordAggregation(byte[] pgpBytes, string separator, string expectedPgpWordAggregation)
-        {
-            var pgpWordAggregation =
-                new PgpWordAggregationBuilder()
-                    .SetSeparator(separator)
-                    .Add(pgpBytes)
-                    .Build();
+        var pgpWordAggregation =
+            new PgpWordAggregationBuilder()
+                .SetSeparator(separator)
+                .Add(pgpBytes)
+                .Build();
 
-            Assert.Equal(expectedPgpWordAggregation, pgpWordAggregation.Value);
-        }
+        Assert.Equal(expectedPgpWordAggregation, pgpWordAggregation.Value);
     }
 }
