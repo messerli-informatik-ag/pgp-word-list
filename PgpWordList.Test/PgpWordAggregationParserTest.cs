@@ -1,5 +1,5 @@
 using System;
-using Funcky.Xunit;
+using Funcky;
 using Xunit;
 
 namespace Messerli.PgpWordList.Test;
@@ -25,7 +25,7 @@ public class PgpWordAggregationParserTest
         var pgpBytes = new PgpWordAggregationParser(separator)
             .ParseOrNone(new PgpWordAggregation(pgpWordAggregation));
 
-        Assert.Equal(expectedPgpBytes, FunctionalAssert.IsSome(pgpBytes));
+        Assert.Equal(expectedPgpBytes, FunctionalAssert.Some(pgpBytes));
     }
 
     [Fact]
@@ -38,6 +38,6 @@ public class PgpWordAggregationParserTest
 
     [Fact]
     public void ReturnsNoneWhenParsingInvalidPgpWords()
-        => FunctionalAssert.IsNone(new PgpWordAggregationParser()
+        => FunctionalAssert.None(new PgpWordAggregationParser()
             .ParseOrNone(new PgpWordAggregation($"{InvalidWord}-adroitness-aardvark-adroitness")));
 }
