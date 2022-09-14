@@ -10,14 +10,11 @@
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-        <PropertyGroup>
-        <RepositoryUrl>https://github.com/messerli-informatik-ag/pgp-word-list</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageId>Messerli.PgpWordList</PackageId>
+    <PropertyGroup>
         <PackageTags>PGP word list wordlist</PackageTags>
+        <Description>PGP word list and functionality to encode and decode series of PGP words.</Description>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
-        <Description>PGP word list and functionality to encode and decode series of PGP words.</Description>
     </PropertyGroup>
     <PropertyGroup>
         <IncludeSymbols>true</IncludeSymbols>
