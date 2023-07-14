@@ -5,7 +5,7 @@
         <AssemblyName>Messerli.PgpWordList</AssemblyName>
     </PropertyGroup>
     <PropertyGroup>
-        <Version>0.2.0</Version>
+        <Version>0.2.1</Version>
         <TargetFrameworks>netstandard2.1;netstandard2.0;netcoreapp3.1</TargetFrameworks>
         <LangVersion>10.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -14,7 +14,6 @@
         <PackageTags>PGP word list wordlist</PackageTags>
         <Description>PGP word list and functionality to encode and decode series of PGP words.</Description>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
-        <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
     </PropertyGroup>
     <PropertyGroup>
         <IncludeSymbols>true</IncludeSymbols>
